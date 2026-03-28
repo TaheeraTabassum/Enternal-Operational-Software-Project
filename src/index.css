@@ -1,10 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@400;500;600;700;800&display=swap");
 /* google font end */
 
 @import "tailwindcss";
-@plugin "daisyui";
+
+
 * {
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+
   font-style: normal;
 }
+
+.sub{
+  font-size: medium;
+  color: #1F2937;
+}
+
+.lgHead{
+  font-size: large;
+  color: black;
+  margin-bottom: 6px;
+}
+ .text-primary{
+  font-size: small;
+  color: black;
+ }
+/* .bg-blue{
+  background-color: #0B1220;
+}
+ .orange{
+  color: #F97316;
+ }
+ .teal{
+  color: #00F5FF;
+ }
+ .green{
+  color: #22C55E;
+ }
+
+ .dark-sec-text{
+  color: #99a2b1;
+ }
+
+ .light-sec-text{
+  color: #1F2937;
+ } */

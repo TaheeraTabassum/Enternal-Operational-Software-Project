@@ -47,7 +47,7 @@ const menuData = [
     id: "sales",
     label: "Sales & OP Collaboration",
     icon: Users,
-    children: ["Meeting", "Message", "Notice"],
+    children: ["Meeting", "Notice"],
   },
   {
     id: "workforce",
@@ -82,7 +82,7 @@ export default function Sidebar() {
 
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
-  
+
 
 
 
@@ -128,14 +128,14 @@ export default function Sidebar() {
     setActiveChild(childLabel);
 
     const routeMap = {
-      "Task-Tracker": "/task-tracker",
+      "Task-Tracker": "/task-tracker/:id",
       Notice: "/notice",
-      Message: "/message",
       "Sit plan": "/sit-plan",
       "Daily To-do": "/todo",
       Management: "/diagram",
       "Team Management": "/workforce",
       "Employee Management": "/employeemanagement",
+      "Password": "/settings/password"
     };
 
     if (parentId === "project") {
@@ -203,14 +203,13 @@ export default function Sidebar() {
                   <button
                     onClick={() => handleParentClick(item)}
                     className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all cursor-pointer
-                      ${
-                        isActive
-                          ? theme === "dark"
-                            ? activeDarkClass
-                            : "bg-[#F97316] text-white shadow-md"
-                          : theme === "dark"
-                            ? "text-gray-400 hover:bg-gray-800 hover:text-[#00d2ff]"
-                            : "text-gray-500 hover:bg-orange-50 hover:text-[#F97316]"
+                      ${isActive
+                        ? theme === "dark"
+                          ? activeDarkClass
+                          : "bg-[#F97316] text-white shadow-md"
+                        : theme === "dark"
+                          ? "text-gray-400 hover:bg-gray-800 hover:text-[#00d2ff]"
+                          : "text-gray-500 hover:bg-orange-50 hover:text-[#F97316]"
                       }
                     `}
                   >
@@ -294,14 +293,13 @@ export default function Sidebar() {
                             key={sIdx}
                             onClick={() => handleChildClick(sub, activeParent)}
                             className={`w-full text-left px-8 py-2 rounded-lg text-sm transition-all cursor-pointer 
-                              ${
-                                activeChild === sub
-                                  ? theme === "dark"
-                                    ? activeDarkClass
-                                    : "bg-[#F97316] text-white shadow-lg"
-                                  : theme === "dark"
-                                    ? "text-gray-400 hover:bg-gray-800 hover:text-[#00d2ff]"
-                                    : "text-gray-600 hover:bg-orange-50 hover:text-[#F97316]"
+                              ${activeChild === sub
+                                ? theme === "dark"
+                                  ? activeDarkClass
+                                  : "bg-[#F97316] text-white shadow-lg"
+                                : theme === "dark"
+                                  ? "text-gray-400 hover:bg-gray-800 hover:text-[#00d2ff]"
+                                  : "text-gray-600 hover:bg-orange-50 hover:text-[#F97316]"
                               }`}
                           >
                             {sub}
@@ -318,15 +316,14 @@ export default function Sidebar() {
                     key={idx}
                     onClick={() => handleChildClick(child, activeParent)}
                     className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all cursor-pointer
-                    ${
-                      isChildActive
+                    ${isChildActive
                         ? theme === "dark"
                           ? activeDarkClass
                           : "bg-[#F97316] text-white shadow-lg"
                         : theme === "dark"
                           ? "text-gray-400 hover:bg-gray-800 hover:text-[#00d2ff]"
                           : "text-gray-600 hover:bg-orange-50 hover:text-[#F97316]"
-                    }`}
+                      }`}
                   >
                     {label}
                   </button>
